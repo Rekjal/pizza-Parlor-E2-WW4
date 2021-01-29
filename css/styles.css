@@ -1,0 +1,93 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5e7e5;
+}
+
+.container {
+  width: 75%;
+}
+
+.containerExtra {
+  background-color: #f88778;
+  padding: 2px 10px 5px 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #f52409;
+}
+
+.btnColor {
+  color: white;
+  background-color:#f52409;
+}
+
+.block {
+  margin: 40px;
+}
+
+.center {
+  width: 100px;
+  margin:auto;
+}
+
+.centerWide{
+  width: 70%;
+  padding: 25px;
+  margin:auto;
+}
+
+#story {
+  display: none;
+  background-color: #eb604e;
+  margin: auto;
+  width: 90%;
+}
+
+a {
+  cursor: pointer;
+  color: #0088cc;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+.aTag {
+  margin:auto;
+  width: 100%;
+  text-align: right;
+}
+
+#answer {
+  list-style-type: none;
+}
+
+#question {
+  font-weight: 700;
+  color:white;
+  list-style-type: none;  
+}
+
+.color {
+  font-weight: 700;
+  color:white;
+}
+
+.cbPadding {
+  margin-top:10px;
+  margin-left:5px;
+}
+
+li:nth-child(odd) {
+  background-color: #b66c61;
+}
+li:nth-child(even) {
+  background-color: #f88778;
+}
