@@ -25,8 +25,24 @@ Pizza.prototype.orderNoGenEstDeliveryTime = function (){
 }
 
 Pizza.prototype.calculatePrice = function (){
-  let price = 1;
-  return price;
+  var totalPrice = 0;
+  var sizePrice = 0;
+  switch (this.pizzaSize) {
+    case 'ExtraLarge':
+      sizePrice = 16;
+      break;
+    case 'Large':
+      sizePrice = 14;
+      break;
+    case 'Medium':
+      sizePrice = 12;
+      break;
+    case 'Small':
+      sizePrice = 10;
+      break;
+  }
+  this.totalPrice = sizePrice + (this.pizzaToppings.length * 2);
+  return this.totalPrice;
 }
 
 Pizza.prototype.renderToppingList = function () {
