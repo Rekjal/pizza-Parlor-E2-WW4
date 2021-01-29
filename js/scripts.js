@@ -89,7 +89,7 @@ $(document).ready(function () {
     }
     $("#customerName").text(newOrder.customerName);
     $("#orderNumber").text(newOrder.orderNumber);
-    if (newOrder.homeDeliveryStatus === true) { 
+    if (newOrder.homeDeliveryStatus === true) {
       $("#address").text(newOrder.deliveryAddress);
       $("#approximatedTime").text(newOrder.approxDeliveryTime);
       $("#showAddress").show();
