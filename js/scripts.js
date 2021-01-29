@@ -1,7 +1,30 @@
 // This is the business (or back-end) logic:
-function Pizza(customerName, pizzaSize, pizzaToppings, homeDeliveryStatus) { //constructor/blue print \
+let totalOrderPrice = 0;
+function Order(pizza) {
+  this.name = 
+  this.pizzaList = {};  //list of Pizza's and thier topigs
+  this.currentId = 0;
+}
+
+Order.prototype.assignId = function () {
+  this.currentId += 1;
+  return this.currentId;
+}
+
+Order.prototype.addOrder = function (pizza) { //copied same pattern as address book
+  pizza.id = this.assignId();
+  this.pizzaList[order.id] = pizza;
+}
+
+Order.prototype.totalPrice = function () {
+  this.pizzaList.forEach(function (pizza) {
+    totalOrderPrice += this.pizza.price;
+    // htmlForToppingList += "<li><span class=\"blueColor\">" + pizzaTopping + "</span></li>";
+  });
+}
+
+function Pizza(pizzaSize, pizzaToppings, homeDeliveryStatus) { //constructor/blue print \
   this.orderNumber;
-  this.customerName = customerName;
   // this.deliveryAddress;
   this.pizzaSize = pizzaSize;
   this.pizzaToppings = pizzaToppings;
@@ -10,7 +33,7 @@ function Pizza(customerName, pizzaSize, pizzaToppings, homeDeliveryStatus) { //c
   this.totalPrice
 }
 
-Pizza.prototype.orderNoGenEstDeliveryTime = function (){
+Pizza.prototype.orderNoGenEstDeliveryTime = function () {
   let currentTime = new Date();
   let orderNumber = currentTime.getTime();
   approxDeliveryTime = new Date(currentTime);
@@ -24,7 +47,7 @@ Pizza.prototype.orderNoGenEstDeliveryTime = function (){
   this.orderNumber = orderNumber;
 }
 
-Pizza.prototype.calculatePrice = function (){
+Pizza.prototype.calculatePrice = function () {
   var totalPrice = 0;
   var sizePrice = 0;
   switch (this.pizzaSize) {
@@ -64,14 +87,14 @@ $(document).ready(function () {
   $('#delivery').click(function (e) {
     e.preventDefault();
     $("#address").toggle();
-    
+
   });
 
   $('#carryout').click(function (e) {
     e.preventDefault();
   });
 
-  $("#address").submit(function(event) {
+  $("#address").submit(function (event) {
     event.preventDefault();
     let customerName = "";
     let street = "";
@@ -85,17 +108,16 @@ $(document).ready(function () {
     zip = $("#inputZip").val();
     $("#addressBlock").hide();
     $(".hide").show();
-    
+
   });
 
   $('#formOne').submit(function (event) {
     event.preventDefault();
-    let customerName = "";
     let pizzaSize = "";
     let pizzaToppings = [];
     let atLeastOneToping = false;
 
-    let newOrder = new Pizza(customerName, pizzaSize, pizzaToppings, true);
+    let newOrder = new Pizza(pizzaSize, pizzaToppings, true);
     newOrder.orderNoGenEstDeliveryTime();  //Generates Order# based off Epoch time; Estimates delivery time be adding 30 mins to order placement time
 
     newOrder.customerName = $("#cusName").val();
