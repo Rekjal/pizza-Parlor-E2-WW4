@@ -91,3 +91,19 @@ li:nth-child(odd) {
 li:nth-child(even) {
   background-color: #f88778;
 }
+
+
+
+
+img {
+  height: 45vh;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(128, 214, 113, 0.801),
+    rgba(40, 180, 133, 0.801)), 
+  url(img/pizza.jpg);
+  background-size: cover;
+  background-position: top;
+  clip-path:polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+

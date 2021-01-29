@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +10,87 @@
   <script src="js/scripts.js"></script>
   <title>Pizza Parlor</title>
 </head>
+
 <body>
   <div class="container">
+    <img src="img/pizza.jpg" alt="A photo of a cute pizza slice.">
     <h1>Pizza Parlor</h1>
+    <div class="jumbotron">
 
+      <h2 id="anim">Choose your pizza size and toppings!</h2>
+      <form id="formOne" name="pizzaOrder">
+        <div class="deliveryOrNot">
+          <input type="checkbox" name="deliveryAddress" /> Enter Delivery Address
+          <input id=deliveryAddress novalidate type="text" name='testName' class="form-control" />
+          <input id='deliveryAddressHidden' type='hidden' value='No' name='testName'>
+          <br>
+        </div>
+
+        <div class="field">
+          <label for="cusName">Name</label>
+          <input id="cusName" required type="string">
+        </div>
+        <br>
+        <label>Choose Your Pizza Size</label>
+        <select class="pizzaSize form-control">
+          <option value="Small">Small ($10)</option>
+          <option value="Medium">Medium ($12)</option>
+          <option value="Large">Large ($14)</option>
+          <option value="ExtraLarge">Extra Large ($16)</option>
+        </select>
+        <div class="form-group">
+          <label>Choose Your Toppings ($2 each)</label>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="pizzaTopping" value="Mushrooms" value="1">Mushrooms
+            </label>
+            <label>
+              <input type="checkbox" name="pizzaTopping" value="Kosher Meat">Kosher Meat
+            </label>
+            <label>
+              <input type="checkbox" name="pizzaTopping" value="Onions">Onions
+            </label>
+            <label>
+              <input type="checkbox" name="pizzaTopping" value="Sausage">Sausage
+            </label>
+            <label>
+              <input type="checkbox" name="pizzaTopping" value="Bacon">Bacon
+            </label>
+            <label>
+              <input type="checkbox" name="pizzaTopping" value="Green Peppers">Green Peppers
+            </label>
+            <label>
+              <input type="checkbox" name="pizzaTopping" value="Black Peppers">Black Peppers
+            </label>
+          </div>
+          </br>
+          <button type="submit" id="submit" class="btn btn-success">Submit</button>
+          <button type="restart" id="restart" class="btn btn-danger">Refresh</button>
+        </div>
+      </form>
+    </div>
+
+    <blockquote class="blockquote">
+      <div id="showPrice">
+        <h1>Order # <span class="blueColor"><span id="orderNumber"></span></span>.</h1>
+        <h2>Thank you <span class="blueColor"><span id="customerName"></span></span>. Your Order details are ...
+        </h2>
+        <ul>
+          <li>Pizza Cost: <span class="blueColor"><span id="totalAmount"></span></span></li>
+          <div id="showToppings">
+            <li>Toppings are ...</li>
+            <ol id="toppings">
+            </ol>
+          </div>
+          <div id="showAddress">
+            <li>Delivery Address: <span class="blueColor"> <span id="address"></span> </span> </li>
+            <li>Approximate Delivery Time: <span class="blueColor"><span id="approximatedTime"></span></span></li>
+          </div>
+        </ul>
+      </div>
+    </blockquote>
   </div>
-  
+
 </body>
+
 </html>
