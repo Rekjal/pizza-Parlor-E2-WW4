@@ -16,12 +16,17 @@ Pizza.prototype.orderNoGenEstDeliveryTime = function (){
 }
 
 Pizza.prototype.calculatePrice = function (){
-  let price = 0;
+  let price = 1;
   return price;
 }
 
 Pizza.prototype.renderToppingList = function () {
- return null;
+  let toppingList = $("ol#toppings");
+  let htmlForToppingList = "";
+  this.pizzaToppings.forEach(function (pizzaTopping) {
+    htmlForToppingList += "<li><span class=\"blueColor\">" + pizzaTopping + "</span></li>";
+  });
+  toppingList.html(htmlForToppingList);
 };
 
 // Everything below this line is the user interface (or front-end) logic:
