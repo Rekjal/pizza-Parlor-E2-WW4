@@ -63,20 +63,33 @@ $(document).ready(function () {
 
   $('#delivery').click(function (e) {
     e.preventDefault();
-    $("#addressBlock").toggle();
+    $("#address").toggle();
     
   });
 
   $('#carryout').click(function (e) {
     e.preventDefault();
-  
+  });
 
+  $("#address").submit(function(event) {
+    event.preventDefault();
+    let customerName = "";
+    let street = "";
+    let city = "";
+    let state = "";
+    let zip = "";
+    customerName = $("#customerName").val();
+    street = $("#inputAddress").val();
+    city = $("#inputCity").val();
+    state = $("#inputState").val();
+    zip = $("#inputZip").val();
+    $("#addressBlock").hide();
+    $(".hide").show();
     
   });
 
   $('#formOne').submit(function (event) {
     event.preventDefault();
-    $("#toppingsDiv").hide();
     let customerName = "";
     let pizzaSize = "";
     let pizzaToppings = [];
@@ -106,9 +119,9 @@ $(document).ready(function () {
     if (newOrder.homeDeliveryStatus === true) {
       $("#address").text(newOrder.deliveryAddress);
       $("#approximatedTime").text(newOrder.approxDeliveryTime);
-      $("#showAddress").show();
+      // $("#showAddress").show();
     }
-    $("#showPrice").show();
+    // $("#showPrice").show();
     console.log(newOrder);
   });
 });

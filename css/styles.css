@@ -96,7 +96,11 @@ li:nth-child(even) {
   display: none;
 }
 
-#addressBlock {
+#address {
+  display: none;
+}
+
+#showPrice {
   display: none;
 }
 
