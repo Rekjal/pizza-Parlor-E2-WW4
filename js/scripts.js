@@ -11,8 +11,17 @@ function Pizza(customerName, pizzaSize, pizzaToppings, homeDeliveryStatus) { //c
 }
 
 Pizza.prototype.orderNoGenEstDeliveryTime = function (){
-  let time = 10;
-  return time;
+  let currentTime = new Date();
+  let orderNumber = currentTime.getTime();
+  approxDeliveryTime = new Date(currentTime);
+  approxDeliveryTime.setMinutes(currentTime.getMinutes() + 30);
+  let index = String(approxDeliveryTime).indexOf("GMT");
+  if (index > 0) {
+    approxDeliveryTime = String(approxDeliveryTime).substring(0, index);
+  }
+  let timeElements = approxDeliveryTime.split(" ");
+  this.approxDeliveryTime = timeElements[4] + " PST " + timeElements[0] + " " + timeElements[1] + " " + timeElements[2] + " " + timeElements[3];
+  this.orderNumber = orderNumber;
 }
 
 Pizza.prototype.calculatePrice = function (){
