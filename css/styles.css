@@ -92,8 +92,13 @@ li:nth-child(even) {
   background-color: #f88778;
 }
 
+.hide {
+  display: none;
+}
 
-
+#addressBlock {
+  display: none;
+}
 
 img {
   height: 45vh;

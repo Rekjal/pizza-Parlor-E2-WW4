@@ -60,6 +60,20 @@ $(document).ready(function () {
     e.preventDefault();
     document.location.reload(true);       //Reload Page
   });
+
+  $('#delivery').click(function (e) {
+    e.preventDefault();
+    $("#addressBlock").toggle();
+    
+  });
+
+  $('#carryout').click(function (e) {
+    e.preventDefault();
+  
+
+    
+  });
+
   $('#formOne').submit(function (event) {
     event.preventDefault();
     $("#toppingsDiv").hide();
