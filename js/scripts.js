@@ -38,7 +38,7 @@ Order.prototype.orderCost = function (order) {
   });
   return total;
 }
-function Pizza(pizzaSize, pizzaToppings, individualPrice) { 
+function Pizza(pizzaSize, pizzaToppings, individualPrice) {
   this.pizzaSize = pizzaSize;
   this.pizzaToppings = pizzaToppings;
   this.individualPrice = individualPrice;
@@ -95,6 +95,8 @@ Order.prototype.renderToppingListMain = function () {
   toppingList.html(htmlForToppingList);
 }
 
+
+
 // Everything below this line is the user interface (or front-end) logic:
 $(document).ready(function () {
   $('#delivery').click(function (e) {  //click on delivery icon
@@ -144,16 +146,13 @@ $(document).ready(function () {
     $(".cartView").hide();
     $(".finalView").show();
     $("#cName1").text(newOrder.name);
-
     $("ul#cart1").empty();
     Object.keys(newOrder.pizzas).forEach(function (key) {
       const tempPizzaSize = newOrder.findPizza(key).pizzaSize;
       const tempIndividualPrice = newOrder.findPizza(key).individualPrice;
       const tempPizzaToppings = newOrder.findPizza(key).pizzaToppings;
-      
       let mainLine1 = "<li># " + key + ": Pizza Size : <strong>" + tempPizzaSize + "</strong></li>";
       let mainLine2 = "<li>$" + tempIndividualPrice + "</li>";
-      
       $("ul#cart1").append(mainLine1);
       $("ul#cart2").append(mainLine2);
       tempPizzaToppings.forEach(function (topping) {
@@ -161,7 +160,6 @@ $(document).ready(function () {
         $("ul#cart1").append(toppingLine);
           $("ul#cart2").append("<br>");
       });
-     
     });
     let totalCost = `$${newOrder.orderCost(newOrder)}`;
     newOrder.orderNoGenEstDeliveryTime();
@@ -182,45 +180,33 @@ $(document).ready(function () {
     let pizzaToppings = [];
     let individualPrice = 0;
     let newPizza = new Pizza(pizzaSize, pizzaToppings, individualPrice);
-
     $('input[type="string"], textarea').val('');  // to clear form of entered value after submit
     newPizza.pizzaSize = $(".pizzaSize").val();
-
     $("input:checkbox[name=pizzaTopping]:checked").each(function () {
       newPizza.pizzaToppings.push($(this).val());
     });
-
     $("input[type=checkbox]").each(function () { this.checked = false; }); //to uncheck previously checked checkboxes
     newPizza.individualPrice = newPizza.calculatePrice(this.pizzaSize, this.pizzaToppings)
-
     newOrder.addOrder(newPizza);
     $(".pizzaOrderBlock").hide();
     $("ul#cart3").empty();
     $("ul#cart4").empty();
-    // $(".cartView").hide();
     $(".cartView").show();
     $("#cName").text(newOrder.name);
-
-  
     Object.keys(newOrder.pizzas).forEach(function (key) {
       const tempPizzaSize = newOrder.findPizza(key).pizzaSize;
       const tempIndividualPrice = newOrder.findPizza(key).individualPrice;
       const tempPizzaToppings = newOrder.findPizza(key).pizzaToppings;
-     
       let mainLine3 = "<li># " + key + ": Pizza Size : <strong>" + tempPizzaSize + "</strong></li>";
       let mainLine4 = "<li>$" + tempIndividualPrice + "</li>";
-
        $("ul#cart3").append(mainLine3);
       $("ul#cart4").append(mainLine4);
-
       tempPizzaToppings.forEach(function (topping) {
         let toppingLine = "<ol>     " + "&nbsp;&nbsp;&nbsp;" + topping + "</ol>";
         $("ul#cart3").append(toppingLine);
           $("ul#cart4").append("<br>");
       });
-
     });
-
     let totalCost = `$${newOrder.orderCost(newOrder)}`;
     $("#totalCost").text(totalCost);
     if (newOrder.homeDelivery === true) {
