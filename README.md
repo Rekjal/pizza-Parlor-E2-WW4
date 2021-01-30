@@ -14,17 +14,17 @@ A web application for a Pizza company where a user can choose one or more indivi
 ## Description    
 #### Further Exploration
 ##### Added additional features:
---  Styled site with CSS/image/animation.
+-  Styled site with CSS/image/animation.
 -  In `Order summary` relist toppings that user chose for each Pizza
 -   Offers `Carryout` and `Delivery` options (Later requires user to enter `Address` information).
 -  Provides an `Order Number` which is based of `Epoch Time`
 -  Provides an `Estimated Delivery Time` (for customer who choose `Delivery` option) which is roughly `Epoch Time` + 30 mins
 -   Included a `Refresh` (or `Go Back To Landing Page`) option should the user wish to restart order
 
-##_**Example:**_ If a user ...
-* `Delivery option'`
-* `Choose Your Pizza Size'`as `Small ($10)`from drop down, clicked on `Mushrooms`  and `Kosher Meat` from under `Choose Your Toppings ($2 each)`
-* `Choose Your Pizza Size'`as `Medium ($12)`from drop down, clicked on `Mushrooms`, `Kosher Meat` and  `Onions` from under  `Choose Your Toppings ($2 each)`and `Submit`, the program shall display below content
+##_**Example:**_ If a user Chose ...
+* `Delivery option` and entered `Name` and `Address`
+* `Choose Your Pizza Size`as `Small ($10)`from drop down, clicked on `Mushrooms`  and `Kosher Meat` from under `Choose Your Toppings ($2 each)`
+* `Choose Your Pizza Size`as `Medium ($12)`from drop down, clicked on `Mushrooms`, `Kosher Meat` and  `Onions` from under  `Choose Your Toppings ($2 each)`and `Submit`, the program shall display below content
 
 
 **JASON MULIG**, thank you for your Order!
@@ -46,8 +46,8 @@ Order Number &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; 
 Approximate Delivery Time&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;04:21:31 PST Sat Jan 30 2021
 
 
-##_**Example:**_ If a user ...
-* `Carryout option'`
+##_**Example:**_ If a user chose...
+* `Carryout option` and entered `Name`
 * `Choose Your Pizza Size'`as `ExtraLarge ($16)`from drop down, clicked on `Bacon`, `Black Peppers`  and `Green Perppers` from under `Choose Your Toppings ($2 each)`
 * `Choose Your Pizza Size'`as `Large ($12)`from drop down, clicked on `Kosher Meat`,  and  `Onions` from under  `Choose Your Toppings ($2 each)`
 * `Choose Your Pizza Size'`as `ExtraLarge ($16)`from drop down, clicked on `MushroomsMeat`,  `Kosher Meat`,  `Onions`,  `Sausage`,  `Bacon`,  `Green Peppers`,  and  `Black Peppers` from under  `Choose Your Toppings ($2 each)`and `Submit`, the program shall display below content
