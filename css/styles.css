@@ -107,6 +107,7 @@ h1 {
 .jumbotron {
   background-color: whitesmoke;
   padding-bottom: 30px;
+  padding-top: 10px;
   margin-bottom: 15px;
 }
 
@@ -240,4 +241,9 @@ ol#toppings {
 
 .hidden{
   display: none;
+}
+
+.h2Box{
+  margin-bottom:40px;
+  padding-top: 10px;
 }
