@@ -106,8 +106,8 @@ h1 {
 
 .jumbotron {
   background-color: whitesmoke;
-  padding-bottom: 10px;
-  margin-bottom: 5px;
+  padding-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 #delivery{
@@ -147,11 +147,19 @@ h1 {
 }
 
 img {
-  height: 45vh;
+  /* height: 45vh;
+ 
+  width: 110; */
+}
+
+.imgPizza {
   float: right;
   margin-bottom:10px;
   height: 110px;
-  width: 110;
+}
+
+.imgClass {
+  
 }
 
 ion-icon {
