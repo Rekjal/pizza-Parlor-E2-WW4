@@ -106,6 +106,8 @@ h1 {
 
 .jumbotron {
   background-color: whitesmoke;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 #delivery{
@@ -163,9 +165,12 @@ ion-icon {
   border-radius: 10%;
 }
 
-#refresh{
-  display: none;
+.aTag {
+  margin:auto;
+  width: 100%;
+  text-align: right;
 }
+
 .colorBlue {
   background-color:blue;
 }
