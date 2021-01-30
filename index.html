@@ -156,28 +156,63 @@
 
     <blockquote class="blockquote">
       <div id="showPrice">
-        <h1>Order # <span class="blueColor"><span id="orderNumber"></span></span>.</h1>
-        <h2>Thank you <span class="blueColor"><span id="customerName"></span></span>. Your Order details are ...
-        </h2>
+
         <ul>
-          <li>Pizza Cost: <span class="blueColor"><span id="totalAmount"></span></span></li>
-          <div id="showToppings">
+          <!-- <li>Pizza Cost: <span class="blueColor"><span id="totalAmount"></span></span></li> -->
+          <!-- <div id="showToppings">
             <li>Toppings are ...</li>
             <ol id="toppings">
             </ol>
-          </div>
-          <div id="showAddress">
-            <li>Delivery Address: <span class="blueColor"> <span id="address"></span> </span> </li>
-            <li>Approximate Delivery Time: <span class="blueColor"><span id="approximatedTime"></span></span></li>
-          </div>
+          </div> -->
+
         </ul>
       </div>
-      <div class="anotherPizza">
-        <button type="submit" id="anotherPizzaID" class="btn btn-success">Would You like to Order another Pizza?</button>
+      <div class="morePizzaOrNot">
+        <button type="submit" id="anotherPizzaID" class="btn btn-success">Would You like to Order another
+          Pizza?</button>
+        <button type="submit" id="finalizeOrder" class="btn btn-success">Click here to place Order</button>
 
       </div>
+
     </blockquote>
-  </div>
+
+    <div class="finalDisplay">
+      <h2>Items in Cart ...</h2>
+      <div class="row">
+        <div class="col-5">
+          <ul id="cart" class="colorRed">
+            <li><span id="mainLine"></span></li>
+            <div id="showToppings">
+              <!-- <li>Toppings are ...</li> -->
+              <ol id="toppings">
+              </ol>
+            </div>
+          </ul>
+        </div>
+        <!-- <div class="col-3">
+          <ul id="price" class="colorBlue">
+            <li><span id="mainLine2"></span></li>
+          </ul>
+        </div> -->
+        <!-- <div id="showAddress">
+          <li>Delivery Address: <span class="blueColor"> <span id="address"></span> </span> </li>
+          <li>Approximate Delivery Time: <span class="blueColor"><span id="approximatedTime"></span></span></li>
+        </div> -->
+
+      </div>
+      <div id="showAddress">
+        <li>Delivery Address: <span class="blueColor"> <span id="address"></span> </span> </li>
+        <li>Approximate Delivery Time: <span class="blueColor"><span id="approximatedTime"></span></span></li>
+      </div>
+
+      <div id="finalPage">
+        <h1>Order # <span class="blueColor"><span id="orderNumber"></span></span>.</h1>
+        <h2>Thank you <span class="blueColor"><span id="customerName"></span></span>. Your Order details are ...
+        </h2>
+      </div>
+
+
+    </div>
 
 </body>
 

@@ -69,7 +69,7 @@ a:hover {
   list-style-type: none;
 }
 
-.anotherPizza {
+.morePizzaOrNot {
   display: none;
 }
 #question {
@@ -128,4 +128,24 @@ ion-icon {
   color: white;
   background-color: #0078ae;
   border-radius: 10%;
+}
+
+.colorRed {
+  background-color: orange;
+}
+
+.colorBlue {
+  background-color:blue;
+}
+
+ul#cart {
+  list-style-type: none;  
+}
+
+ol#toppings {
+  list-style-type:square
+}
+
+#finalPage {
+  display: none;
 }

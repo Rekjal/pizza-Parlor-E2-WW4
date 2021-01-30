@@ -24,20 +24,20 @@ Order.prototype.addOrder = function (pizza) { //copied same pattern as address b
   this.pizzas[pizzaID] = pizza;
 }
 
-Order.prototype.findContact = function(pizzaID) {
+Order.prototype.findContact = function (pizzaID) {
   if (this.pizzas[pizzaID] != undefined) {
     return this.pizzas[pizzaID];
   }
   return false;
 }
 
-Order.prototype.orderCost = function(order) {
-  let total =0;
-  Object.keys(order.pizzas).forEach(function(key) {
+Order.prototype.orderCost = function (order) {
+  let total = 0;
+  Object.keys(order.pizzas).forEach(function (key) {
     const tempTotal = order.findContact(key).individualPrice;
     total += tempTotal;
-   });
-   return total;
+  });
+  return total;
 }
 // Order.prototype.orderCost = function () {
 //   Object.keys(addressBookToDisplay.contacts).forEach(function(key) {
@@ -103,6 +103,15 @@ Pizza.prototype.renderToppingList = function () {
   toppingList.html(htmlForToppingList);
 };
 
+Order.prototype.renderToppingListMain = function () {
+  let toppingList = $("ol#toppings");
+  let htmlForToppingList = "";
+  this.pizzaToppings.forEach(function (pizzaTopping) {
+    htmlForToppingList += "<li><span class=\"blueColor\">" + pizzaTopping + "</span></li>";
+  });
+  toppingList.html(htmlForToppingList);
+};
+
 // Everything below this line is the user interface (or front-end) logic:
 $(document).ready(function () {
   $('#restart').click(function (e) {
@@ -120,7 +129,7 @@ $(document).ready(function () {
     e.preventDefault();
   });
 
-  $("#anotherPizzaID").click( function (event) {
+  $("#anotherPizzaID").click(function (event) {
     event.preventDefault();
     $(".hide").show();
   });
@@ -168,8 +177,8 @@ $(document).ready(function () {
     newPizza.individualPrice = newPizza.calculatePrice(this.pizzaSize, this.pizzaToppings)
     $("#totalAmount").text("$" + newPizza.individualPrice);
     if (atLeastOneToping === true) { //List toppings only if 1 or more topping were chosen
-      $("#showToppings").show();
-      newPizza.renderToppingList();
+      // $("#showToppings").show();
+      // newPizza.renderToppingList();
     }
     $("#customerName").text(newOrder.customerName);
     $("#orderNumber").text(newOrder.orderNumber);
@@ -181,14 +190,48 @@ $(document).ready(function () {
     $(".hide").hide();
     $("#showPrice").show();
     newOrder.addOrder(newPizza);
-    $(".anotherPizza").show();
+    $(".morePizzaOrNot").show();
 
     const keys = Object.keys(newOrder);
     // newOrder.orderCost(keys);
     var total = 0;
-   
+
     newOrder.totalPrice = newOrder.orderCost(newOrder);
     console.log(newOrder.totalPrice);
     console.log(newOrder);
+    $("ul#question").empty();
+
+    // finalIntegerArray.forEach(function (element) {
+    //   let textQuestion = "<li>Numeral " + k + "</li>";
+    //   let textAnswer = "<li>" + element + "</li>";
+    //   $("ul#question").append(textQuestion);
+    //   $("ul#answer").append(textAnswer);
+    //   k = k + step;
+    // });
+    $("ul#cart").empty();
+    $("ul#price").empty();
+    $("#showToppings").show();
+
+    Object.keys(newOrder.pizzas).forEach(function (key) {
+      const tempPizzaSize = newOrder.findContact(key).pizzaSize;
+      const tempIndividualPrice = newOrder.findContact(key).individualPrice;
+      const tempPizzaToppings = newOrder.findContact(key).pizzaToppings;
+
+      let mainLine = "<br><li>Item # " + key + ":" + tempPizzaSize + ":$" + tempIndividualPrice + "</li>";
+      // let mainLine2 = "<li>$" +tempIndividualPrice + "</li>";
+      
+      $("ul#cart").append(mainLine);
+      // $("ul#price").append(mainLine2);
+     
+      tempPizzaToppings.forEach(function (element) {
+        let topping = "<li>     " + element + "</li>";
+        $("ul#cart").append(topping);
+      });
+
+    });
+
+
+
+
   });
 });
