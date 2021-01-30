@@ -138,7 +138,7 @@ $(document).ready(function () {
   });
 
 
-  $("button#finalizeOrder").click(function (e) {
+  $("button#finalizeOrder").click(function (e) {  //final view
     e.preventDefault();
     $(".pizzaOrderBlock").hide();
     $(".cartView").hide();
@@ -176,7 +176,7 @@ $(document).ready(function () {
   });
 
 
-  $('#pizzaOrderForm').submit(function (event) {
+  $('#pizzaOrderForm').submit(function (event) {   //staging view
     event.preventDefault();
     let pizzaSize = "";
     let pizzaToppings = [];
@@ -195,10 +195,13 @@ $(document).ready(function () {
 
     newOrder.addOrder(newPizza);
     $(".pizzaOrderBlock").hide();
+    $("ul#cart3").empty();
+    $("ul#cart4").empty();
+    // $(".cartView").hide();
     $(".cartView").show();
     $("#cName").text(newOrder.name);
 
-    $("ul#cart").empty();
+  
     Object.keys(newOrder.pizzas).forEach(function (key) {
       const tempPizzaSize = newOrder.findPizza(key).pizzaSize;
       const tempIndividualPrice = newOrder.findPizza(key).individualPrice;
