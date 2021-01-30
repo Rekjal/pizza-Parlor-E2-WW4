@@ -149,3 +149,15 @@ ol#toppings {
 #finalPage {
   display: none;
 }
+
+#showAddress {
+  display: none;
+}
+
+.finalDisplay {
+  display:none;
+}
+
+.head {
+  display:none;
+}

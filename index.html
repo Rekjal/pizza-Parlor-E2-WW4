@@ -34,8 +34,7 @@
       <form id="address">
         <div class="form-group">
           <label for="customerName">Name</label>
-          <input type="text" required class="form-control" id="customerName" required
-            placeholder="Enter First & Last Name">
+          <input type="text" class="form-control" id="customerName" required placeholder="Enter First & Last Name">
         </div>
         <div class="form-group">
           <label for="inputAddress">Address</label>
@@ -126,7 +125,7 @@
           <label>Choose Your Toppings ($2 each)</label>
           <div class="checkbox">
             <label>
-              <input type="checkbox" name="pizzaTopping" value="Mushrooms" value="1">Mushrooms
+              <input type="checkbox" name="pizzaTopping" value="Mushrooms">Mushrooms
             </label>
             <label>
               <input type="checkbox" name="pizzaTopping" value="Kosher Meat">Kosher Meat
@@ -147,9 +146,9 @@
               <input type="checkbox" name="pizzaTopping" value="Black Peppers">Black Peppers
             </label>
           </div>
-          </br>
+
           <button type="submit" id="submit" class="btn btn-success">Submit</button>
-          <button type="restart" id="restart" class="btn btn-danger">Refresh</button>
+          <button type="submit" id="restart" class="btn btn-danger">Refresh</button>
         </div>
       </form>
     </div>
@@ -167,53 +166,38 @@
 
         </ul>
       </div>
-      <div class="morePizzaOrNot">
-        <button type="submit" id="anotherPizzaID" class="btn btn-success">Would You like to Order another
-          Pizza?</button>
-        <button type="submit" id="finalizeOrder" class="btn btn-success">Click here to place Order</button>
 
-      </div>
 
     </blockquote>
 
     <div class="finalDisplay">
-      <h2>Items in Cart ...</h2>
+      <h2 class="head"><span id="cName"></span>, thank you for your order!</h2>
+      <div id="finalPage">
+        <h1>Order # <span class="blueColor"><span id="orderNumber"></span></span>.</h1>
+        <h2>Your Order details are ...
+        </h2>
+      </div>
       <div class="row">
         <div class="col-5">
           <ul id="cart" class="colorRed">
             <li><span id="mainLine"></span></li>
-            <div id="showToppings">
-              <!-- <li>Toppings are ...</li> -->
-              <ol id="toppings">
-              </ol>
-            </div>
           </ul>
         </div>
-        <!-- <div class="col-3">
-          <ul id="price" class="colorBlue">
-            <li><span id="mainLine2"></span></li>
-          </ul>
-        </div> -->
-        <!-- <div id="showAddress">
-          <li>Delivery Address: <span class="blueColor"> <span id="address"></span> </span> </li>
-          <li>Approximate Delivery Time: <span class="blueColor"><span id="approximatedTime"></span></span></li>
-        </div> -->
-
       </div>
       <div id="showAddress">
-        <li>Delivery Address: <span class="blueColor"> <span id="address"></span> </span> </li>
-        <li>Approximate Delivery Time: <span class="blueColor"><span id="approximatedTime"></span></span></li>
+        <ul>
+          <li>Delivery Address: <span class="blueColor"> <span id="deliveryAddress"></span> </span> </li>
+          <li>Approximate Delivery Time: <span class="blueColor"><span id="approximatedTime"></span></span></li>
+        </ul>
       </div>
-
-      <div id="finalPage">
-        <h1>Order # <span class="blueColor"><span id="orderNumber"></span></span>.</h1>
-        <h2>Thank you <span class="blueColor"><span id="customerName"></span></span>. Your Order details are ...
-        </h2>
-      </div>
-
+    </div>
+    <div class="morePizzaOrNot">
+      <button type="submit" id="anotherPizzaID" class="btn btn-success">Would You like to Order another
+        Pizza?</button>
+      <button type="submit" id="finalizeOrder" class="btn btn-success">Click here to place Order</button>
 
     </div>
-
+  </div>
 </body>
 
 </html>

@@ -122,6 +122,7 @@ $(document).ready(function () {
   $('#delivery').click(function (e) {
     e.preventDefault();
     $("#address").toggle();
+    // newOrder.homeDelivery   
 
   });
 
@@ -132,6 +133,15 @@ $(document).ready(function () {
   $("#anotherPizzaID").click(function (event) {
     event.preventDefault();
     $(".hide").show();
+  });
+
+  $("button#finalizeOrder").click(function (e){
+    e.preventDefault();
+    $(".morePizzaOrNot").hide();
+    // alert(newOrder.name);
+    $(".head").show();
+    $("#cName").text(newOrder.name);
+    $("#finalPage").show();
   });
 
   $("#address").submit(function (event) {
@@ -182,11 +192,7 @@ $(document).ready(function () {
     }
     $("#customerName").text(newOrder.customerName);
     $("#orderNumber").text(newOrder.orderNumber);
-    if (newOrder.homeDeliveryStatus === true) {
-      // $("#address").text(newPizza.deliveryAddress);
-      $("#approximatedTime").text(newOrder.approxDeliveryTime);
-      // $("#showAddress").show();
-    }
+    
     $(".hide").hide();
     $("#showPrice").show();
     newOrder.addOrder(newPizza);
@@ -211,6 +217,8 @@ $(document).ready(function () {
     $("ul#cart").empty();
     $("ul#price").empty();
     $("#showToppings").show();
+    
+    
 
     Object.keys(newOrder.pizzas).forEach(function (key) {
       const tempPizzaSize = newOrder.findContact(key).pizzaSize;
@@ -229,9 +237,14 @@ $(document).ready(function () {
       });
 
     });
-
-
-
-
+    
+    
+    if (newOrder.homeDelivery === true) {
+      let tempDeliveryAdd = `${newOrder.street}, ${newOrder.city}, ${newOrder.state}, ZIP-${newOrder.zip}`;
+      $("#deliveryAddress").text(tempDeliveryAdd);
+      $("#approximatedTime").text(newOrder.approxDeliveryTime);
+      $("#showAddress").show();
+    }
+    $(".finalDisplay").show();
   });
 });
