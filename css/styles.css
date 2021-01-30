@@ -183,7 +183,11 @@ ion-icon {
   background-color:blue;
 }
 
-ul#cart {
+ul#cart3 {
+  list-style-type: none; 
+}
+
+ul#cart4 {
   list-style-type: none; 
 }
 
@@ -191,6 +195,9 @@ ul#cart1 {
   list-style-type: none; 
 }
 
+ul#cart2 {
+  list-style-type: none; 
+}
 .bottomLine {
   border-bottom: 5px solid red;
 }

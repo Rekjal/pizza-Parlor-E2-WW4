@@ -77,25 +77,6 @@ Pizza.prototype.calculatePrice = function () {
   return this.individualPrice;
 }
 
-Pizza.prototype.nbspPadding = function (pizzaSize){
-  let nbspPadding = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-  switch (pizzaSize) {
-    case 'ExtraLarge':
-      nbspPadding = nbspPadding;
-      break;
-    case 'Large':
-      nbspPadding = nbspPadding + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-      break;
-    case 'Medium':
-      nbspPadding = nbspPadding + "&nbsp;&nbsp;&nbsp;&nbsp;";
-      break;
-    case 'Small':
-      nbspPadding = nbspPadding + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-      break;
-  }
-  return nbspPadding;
-}
-
 Pizza.prototype.renderToppingList = function () {
   let toppingList = $("ol#toppings");
   let htmlForToppingList = "";
@@ -156,6 +137,7 @@ $(document).ready(function () {
     $(".pizzaOrderBlock").show();
   });
 
+
   $("button#finalizeOrder").click(function (e) {
     e.preventDefault();
     $(".pizzaOrderBlock").hide();
@@ -164,18 +146,22 @@ $(document).ready(function () {
     $("#cName1").text(newOrder.name);
 
     $("ul#cart1").empty();
-    let lotOfNbsp = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
     Object.keys(newOrder.pizzas).forEach(function (key) {
       const tempPizzaSize = newOrder.findPizza(key).pizzaSize;
       const tempIndividualPrice = newOrder.findPizza(key).individualPrice;
       const tempPizzaToppings = newOrder.findPizza(key).pizzaToppings;
-      // const tempPadding =  nbspPadding(pizzaSize);
-      let mainLine1 = "<br><li># " + key + ": Pizza Size : <strong>" + tempPizzaSize + "</strong> &nbsp;$" + tempIndividualPrice + "</li>";
+      
+      let mainLine1 = "<li># " + key + ": Pizza Size : <strong>" + tempPizzaSize + "</strong></li>";
+      let mainLine2 = "<li>$" + tempIndividualPrice + "</li>";
+      
       $("ul#cart1").append(mainLine1);
+      $("ul#cart2").append(mainLine2);
       tempPizzaToppings.forEach(function (topping) {
         let toppingLine = "<ol>     " + "&nbsp;&nbsp;&nbsp;" + topping + "</ol>";
         $("ul#cart1").append(toppingLine);
+          $("ul#cart2").append("<br>");
       });
+     
     });
     let totalCost = `$${newOrder.orderCost(newOrder)}`;
     newOrder.orderNoGenEstDeliveryTime();
@@ -188,6 +174,7 @@ $(document).ready(function () {
     $("#orderNum").text(newOrder.orderNumber);
     $("#deliveryTime").text(newOrder.approxDeliveryTime);
   });
+
 
   $('#pizzaOrderForm').submit(function (event) {
     event.preventDefault();
@@ -212,19 +199,23 @@ $(document).ready(function () {
     $("#cName").text(newOrder.name);
 
     $("ul#cart").empty();
-    let lotOfNbsp = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
     Object.keys(newOrder.pizzas).forEach(function (key) {
       const tempPizzaSize = newOrder.findPizza(key).pizzaSize;
       const tempIndividualPrice = newOrder.findPizza(key).individualPrice;
       const tempPizzaToppings = newOrder.findPizza(key).pizzaToppings;
-      // const tempPadding =  nbspPadding(pizzaSize);
-      // alert(tempPadding);
-      let mainLine = "<br><li># " + key + ": Pizza Size : <strong>" + tempPizzaSize + "</strong>&nbsp;$" + tempIndividualPrice + "</li>";
-      $("ul#cart").append(mainLine);
+     
+      let mainLine3 = "<li># " + key + ": Pizza Size : <strong>" + tempPizzaSize + "</strong></li>";
+      let mainLine4 = "<li>$" + tempIndividualPrice + "</li>";
+
+       $("ul#cart3").append(mainLine3);
+      $("ul#cart4").append(mainLine4);
+
       tempPizzaToppings.forEach(function (topping) {
         let toppingLine = "<ol>     " + "&nbsp;&nbsp;&nbsp;" + topping + "</ol>";
-        $("ul#cart").append(toppingLine);
+        $("ul#cart3").append(toppingLine);
+          $("ul#cart4").append("<br>");
       });
+
     });
 
     let totalCost = `$${newOrder.orderCost(newOrder)}`;
