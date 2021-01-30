@@ -18,7 +18,7 @@ A web application for a Pizza company where a user can choose one or more indivi
 
 - Allows user to choose toppings and size for the pizza they'd like to order.
 
-- Allow users to order more than one pizza with different toppings.
+- Allows user to order more than one pizza with different toppings.
 
 - Created a pizza object constructor with properties for toppings and size.
 
