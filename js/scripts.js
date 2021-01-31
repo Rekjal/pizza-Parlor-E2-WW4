@@ -151,8 +151,8 @@ $(document).ready(function () {
       const tempPizzaSize = newOrder.findPizza(key).pizzaSize;
       const tempIndividualPrice = newOrder.findPizza(key).individualPrice;
       const tempPizzaToppings = newOrder.findPizza(key).pizzaToppings;
-      let mainLine1 = "<li># " + key + ": Pizza Size : <strong>" + tempPizzaSize + "</strong></li>";
-      let mainLine2 = "<li>$" + tempIndividualPrice + "</li>";
+      let mainLine1 = "<br><li># " + key + ": Pizza Size : <strong>" + tempPizzaSize + "</strong></li>";
+      let mainLine2 = "<br><li>$" + tempIndividualPrice + "</li>";
       $("ul#cart1").append(mainLine1);
       $("ul#cart2").append(mainLine2);
       tempPizzaToppings.forEach(function (topping) {
@@ -197,8 +197,8 @@ $(document).ready(function () {
       const tempPizzaSize = newOrder.findPizza(key).pizzaSize;
       const tempIndividualPrice = newOrder.findPizza(key).individualPrice;
       const tempPizzaToppings = newOrder.findPizza(key).pizzaToppings;
-      let mainLine3 = "<li># " + key + ": Pizza Size : <strong>" + tempPizzaSize + "</strong></li>";
-      let mainLine4 = "<li>$" + tempIndividualPrice + "</li>";
+      let mainLine3 = "<br><li># " + key + ": Pizza Size : <strong>" + tempPizzaSize + "</strong></li>";
+      let mainLine4 = "<br><li>$" + tempIndividualPrice + "</li>";
        $("ul#cart3").append(mainLine3);
       $("ul#cart4").append(mainLine4);
       tempPizzaToppings.forEach(function (topping) {
