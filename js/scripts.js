@@ -136,7 +136,7 @@ $(document).ready(function () {
       tempPizzaToppings.forEach(function (topping) {
         let toppingLine = "<ol>     " + "&nbsp;&nbsp;&nbsp;" + topping + "</ol>";
         $("ul#cart1").append(toppingLine);
-          $("ul#cart2").append("<br>");
+        $("ul#cart2").append("<br>");
       });
     });
     let totalCost = `$${newOrder.orderCost(newOrder)}`;
