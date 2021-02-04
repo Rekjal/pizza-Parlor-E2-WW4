@@ -46,16 +46,17 @@ Test: "It should increment Order.pizzaCount property by 1 with each call (starti
 Expect(Order.pizzaCount).toEqual(1);
 
 Describe: Order.prototype.addOrder(Pizza object)
-Test: "It should, when called for the first time, add a key (value of 1) and a Object of type Pizza (as value) to Order.contacts (Order.contacts property is originally empty but gets populated with a unique key and Pizza object (as value) with each new order of pizza (Example for Pizza object is {pizzaSize: "Small", pizzaToppings: ["Mushroom", "Kosher Meat"], individualPrice: $14})"
+Test: "It should, when called for the first time, add a key (value of 1) and an Object of type Pizza (as value) to Order.contacts (Order.contacts property is originally empty but gets populated with a unique key and Pizza object (as value) with each new order of pizza (Example for Pizza object is {pizzaSize: "Small", pizzaToppings: ["Mushroom", "Kosher Meat"], individualPrice: $14})"
 Expect(Order.pizzaCount(Pizza Object).toEqual({1: Pizza Object});
 
 Describe: Order.prototype.findPizza(key)
-Test: "It should return the Pizza object stored in Order.contacts correponding to the key passed as argument (Pizza object example is {pizzaSize: "Small", pizzaToppings: ["Mushroom", "Kosher Meat"], individualPrice: $14})"
+Test: "It should return the Pizza object stored in Order.contacts corresponding to the key passed as argument (Pizza object example is {pizzaSize: "Small", pizzaToppings: ["Mushroom", "Kosher Meat"], individualPrice: $14})"
 Expect(Order.pizzas.toEqual({Pizza Object});
 
 Describe: Order.prototype.orderCost(Order object)
 Test: "It should collect all the keys in Order.pizzas property and return the total cost of Pizza objects accumulated"
 Expect(total.toEqual(14);
+
 ```
 
 
