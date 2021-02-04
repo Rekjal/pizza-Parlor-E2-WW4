@@ -28,7 +28,8 @@
           <p class="center">Carryout</p>
         </div>
       </div>
-      <form id="deliveryForm">
+
+      <form id="deliveryForm"> <!-- 1a. Form where delivery adddress should be entered (for patrons who prefer delivery). Form submit will take user to Pizza Order Block  -->
         <div class="form-group">
           <br><br>
           <label for="customerName">Name</label>
@@ -107,7 +108,7 @@
         <button type="submit" id="deliveryOption" class="btn btn-primary">CONTINUE FOR DELIVERY</button>
       </form>
 
-      <form id="carryOutForm">
+      <form id="carryOutForm"> <!-- 1b. Form where Name should be entered (for patrons who prefer carryout). Form submit will take user to Pizza Order Block  -->
         <br><br>
         <div class="form-group">
           <label for="customerName2">Name</label>
@@ -117,7 +118,7 @@
       </form>
     </div>
 
-    <div class="jumbotron pizzaOrderBlock">
+    <div class="jumbotron pizzaOrderBlock">  <!-- 2. Pizza Order form (before staging) -->
       <h2 id="anim">Choose your pizza size and toppings!</h2>
       <br><br><br>
       <img src="img/pizza.jpg" alt="A photo of a cute pizza slice" class="imgPizza">
@@ -164,7 +165,7 @@
       </div>
     </div>
 
-    <div class="jumbotron cartView"> <!-- staging view -->
+    <div class="jumbotron cartView"> <!-- 3. Staging view -->
       <h2 class="h2Box"><span id="cName"></span>, your Cart items are ...<br></h2>
       <div class="bottomLine">
         <div class="row">
@@ -198,7 +199,7 @@
       </div>
     </div>
 
-    <div class="jumbotron finalView">   <!-- final view -->
+    <div class="jumbotron finalView">   <!-- 4. Final view -->
       <h2 class="h2Box"><span id="cName1"></span>, thank you for your Order!<br></h2>
       <div class="bottomLine">
         <div class="row">

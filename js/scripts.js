@@ -1,15 +1,14 @@
 // This is the business (or back-end) logic:
-function Order(homeDelivery) {
+function Order(isDelivery) {
   this.name = "";
-  this.homeDelivery = homeDelivery;
+  this.isDelivery = isDelivery;
   this.street = "";
   this.city = "";
   this.state = "";
   this.zip = "";
   this.approxDeliveryTime = "";
   this.orderNumber = "";
-  this.totalPrice = 0;
-  this.pizzas = {};  //list of Pizza's - each one has size, toppings, individual price
+  this.pizzas = {};  //Property storing an empty object - list of Pizza's - each one has size, toppings, individual price
   this.pizzaCount = 0;
 }
 
@@ -57,7 +56,6 @@ Order.prototype.orderNoGenEstDeliveryTime = function () {
   this.orderNumber = orderNumber;
 }
 Pizza.prototype.calculatePrice = function () {
-  let totalPrice = 0;
   var sizePrice = 0;
   switch (this.pizzaSize) {
     case 'ExtraLarge':
@@ -77,24 +75,6 @@ Pizza.prototype.calculatePrice = function () {
   return this.individualPrice;
 }
 
-Pizza.prototype.renderToppingList = function () {
-  let toppingList = $("ol#toppings");
-  let htmlForToppingList = "";
-  this.pizzaToppings.forEach(function (pizzaTopping) {
-    htmlForToppingList += "<li><span class=\"blueColor\">" + pizzaTopping + "</span></li>";
-  });
-  toppingList.html(htmlForToppingList);
-}
-
-Order.prototype.renderToppingListMain = function () {
-  let toppingList = $("ol#toppings");
-  let htmlForToppingList = "";
-  this.pizzaToppings.forEach(function (pizzaTopping) {
-    htmlForToppingList += "<li><span class=\"blueColor\">" + pizzaTopping + "</span></li>";
-  });
-  toppingList.html(htmlForToppingList);
-}
-
 
 
 // Everything below this line is the user interface (or front-end) logic:
@@ -111,7 +91,7 @@ $(document).ready(function () {
     $("#carryOutForm").toggle();
   });
 
-  $("form#deliveryForm").submit(function (event) {
+  $("form#deliveryForm").submit(function (event) {  //1a. Form where "delivery adddress" should be entered (for patrons who prefer delivery). Form submit will take user to Pizza Order Block
     event.preventDefault();
     $("#iconBlock").hide();
     $(".pizzaOrderBlock").show();
@@ -121,26 +101,24 @@ $(document).ready(function () {
     newOrder.city = $("#inputCity").val();
     newOrder.state = $("#inputState").val();
     newOrder.zip = $("#inputZip").val();
-    totalPrice = 0;
   });
 
-  $("form#carryOutForm").submit(function (event) {
+  $("form#carryOutForm").submit(function (event) {  //1b. Form where "Name" should be entered (for patron who prefer carryout). Form submit will take user to Pizza Order Block
     event.preventDefault();
     $("#iconBlock").hide();
     $(".pizzaOrderBlock").show();
     newOrder = new Order(false);
     newOrder.name = ($("#customerName2").val()).toUpperCase();
-    totalPrice = 0;
   });
 
-  $("#anotherPizzaID").click(function (event) {
+  $("#anotherPizzaID").click(function (event) {  //3. Staging: Button click to take user back to pizza block to add another pizza (navigates back to 2. Pizza Order form)
     event.preventDefault();
     $(".cartView").hide();
     $(".pizzaOrderBlock").show();
   });
 
 
-  $("button#finalizeOrder").click(function (e) {  //final view
+  $("button#finalizeOrder").click(function (e) {  //3. Staging: Button click for final checkout. Will take user to final view
     e.preventDefault();
     $(".pizzaOrderBlock").hide();
     $(".cartView").hide();
@@ -164,7 +142,7 @@ $(document).ready(function () {
     let totalCost = `$${newOrder.orderCost(newOrder)}`;
     newOrder.orderNoGenEstDeliveryTime();
     $("#totalCost1").text(totalCost);
-    if (newOrder.homeDelivery === true) {
+    if (newOrder.isDelivery === true) {
       let tempDeliveryAdd = `${newOrder.street}, ${newOrder.city}, ${newOrder.state}, ZIP-${newOrder.zip}`;
       $("#deliveryAddress1").text(tempDeliveryAdd);
       $(".hideDelivery").show();
@@ -174,7 +152,7 @@ $(document).ready(function () {
   });
 
 
-  $('#pizzaOrderForm').submit(function (event) {   //staging view
+  $('#pizzaOrderForm').submit(function (event) {   //2. Pizza Order form - form submit hides Pizza order form takes user to staging
     event.preventDefault();
     let pizzaSize = "";
     let pizzaToppings = [];
@@ -191,7 +169,7 @@ $(document).ready(function () {
     $(".pizzaOrderBlock").hide();
     $("ul#cart3").empty();
     $("ul#cart4").empty();
-    $(".cartView").show();
+    $(".cartView").show(); //unHide Staging page
     $("#cName").text(newOrder.name);
     Object.keys(newOrder.pizzas).forEach(function (key) {
       const tempPizzaSize = newOrder.findPizza(key).pizzaSize;
@@ -199,17 +177,17 @@ $(document).ready(function () {
       const tempPizzaToppings = newOrder.findPizza(key).pizzaToppings;
       let mainLine3 = "<br><li># " + key + ": Pizza Size : <strong>" + tempPizzaSize + "</strong></li>";
       let mainLine4 = "<br><li>$" + tempIndividualPrice + "</li>";
-       $("ul#cart3").append(mainLine3);
+      $("ul#cart3").append(mainLine3);
       $("ul#cart4").append(mainLine4);
       tempPizzaToppings.forEach(function (topping) {
         let toppingLine = "<ol>     " + "&nbsp;&nbsp;&nbsp;" + topping + "</ol>";
         $("ul#cart3").append(toppingLine);
-          $("ul#cart4").append("<br>");
+        $("ul#cart4").append("<br>");
       });
     });
     let totalCost = `$${newOrder.orderCost(newOrder)}`;
     $("#totalCost").text(totalCost);
-    if (newOrder.homeDelivery === true) {
+    if (newOrder.isDelivery === true) {
       let tempDeliveryAdd = `${newOrder.street}, ${newOrder.city}, ${newOrder.state}, ZIP-${newOrder.zip}`;
       $("#deliveryAddress").text(tempDeliveryAdd);
       $(".hideDelivery").show();

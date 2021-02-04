@@ -2,19 +2,15 @@
 
 ##### Date: **1/29/2021**
 
-  
 
 #### By **_Salim Mayan_**
 
-  
 
 ## Description
 
-  
 
 A web application for a Pizza company where a user can choose one or more individual toppings (upto **seven**: Mushrooms, Kosher, Meat, Onions, Sausage, Bacon, Green Peppers, and Black Peppers) and a size (upto **four**: Small, Medium, Large, and Extra Large) to order a pizza and see the final cost.
 
-  
 
 - Allows user to choose toppings and size for the pizza they'd like to order.
 
@@ -42,112 +38,26 @@ A web application for a Pizza company where a user can choose one or more indivi
 
 - Included a `Refresh` (or `Go Back To Landing Page`) option should the user wish to restart order
 
-  
 
-##_**Example:**_ If a user Chose ...
+| **Spec** |
+```
+Describe: Order.prototype.assignId()
+Test: "It should increment Order.pizzaCount property by 1 with each call (starting value is 0)"
+Expect(Order.pizzaCount).toEqual(1);
 
-*  `Delivery option` and entered `Name` and `Address`
+Describe: Order.prototype.addOrder(Pizza object)
+Test: "It should, when called for the first time, add a key (value of 1) and a Object of type Pizza (as value) to Order.contacts (Order.contacts property is originally empty but gets populated with a unique key and Pizza object (as value) with each new order of pizza (Example for Pizza object is {pizzaSize: "Small", pizzaToppings: ["Mushroom", "Kosher Meat"], individualPrice: $14})"
+Expect(Order.pizzaCount(Pizza Object).toEqual({1: Pizza Object});
 
-*  `Choose Your Pizza Size`as `Small ($10)`from drop down, clicked on `Mushrooms` and `Kosher Meat` from under `Choose Your Toppings ($2 each)`
+Describe: Order.prototype.findPizza(key)
+Test: "It should return the Pizza object stored in Order.contacts correponding to the key passed as argument (Pizza object example is {pizzaSize: "Small", pizzaToppings: ["Mushroom", "Kosher Meat"], individualPrice: $14})"
+Expect(Order.pizzas.toEqual({Pizza Object});
 
-*  `Choose Your Pizza Size`as `Medium ($12)`from drop down, clicked on `Mushrooms`, `Kosher Meat` and `Onions` from under `Choose Your Toppings ($2 each)`and `Submit`, the program shall display below content
+Describe: Order.prototype.orderCost(Order object)
+Test: "It should collect all the keys in Order.pizzas property and return the total cost of Pizza objects accumulated"
+Expect(total.toEqual(14);
+```
 
-  
-  
-
-**JASON MULIG**, thank you for your Order!
-
-  
-  
-
-\# 1: Pizza Size : **Small**  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;$14
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Mushrooms
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Kosher Meat
-
-  
-
-\# 2: Pizza Size : **Medium**  &nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;$18
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Mushrooms
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Kosher Meat
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Onions
-
-  
-
-Total Cost &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp; $32
-
-Delivery Address&nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp; 8292 SW Childs Road, West Linn, Oregon - OR, ZIP-97035
-
-Order Number &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp; 1612007491849
-
-Approximate Delivery Time&nbsp;  &nbsp;  &nbsp;&nbsp;04:21:31 PST Sat Jan 30 2021
-
-  
-  
-
-##_**Example:**_ If a user chose...
-
-*  `Carryout option` and entered `Name`
-
-*  `Choose Your Pizza Size'`as `ExtraLarge ($16)`from drop down, clicked on `Bacon`, `Black Peppers` and `Green Perppers` from under `Choose Your Toppings ($2 each)`
-
-*  `Choose Your Pizza Size'`as `Large ($12)`from drop down, clicked on `Kosher Meat`, and `Onions` from under `Choose Your Toppings ($2 each)`
-
-*  `Choose Your Pizza Size'`as `ExtraLarge ($16)`from drop down, clicked on `MushroomsMeat`, `Kosher Meat`, `Onions`, `Sausage`, `Bacon`, `Green Peppers`, and `Black Peppers` from under `Choose Your Toppings ($2 each)`and `Submit`, the program shall display below content
-
-  
-  
-  
-
-**TRAVIS SCOTT**, thank you for your Order!
-
-  
-  
-
-\# 1: Pizza Size : **ExtraLarge**  &nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;$22
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Mushrooms
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Kosher Meat
-
-  
-
-\# 2: Pizza Size : **Large**  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$18
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Mushrooms
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Kosher Meat
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Onions
-
-\# 3: Pizza Size : **ExtraLarge**  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;$30
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Mushrooms
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Kosher Meat
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Onions
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Sausage
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Bacon
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Green Peppers
-
-&nbsp;  &nbsp;  &nbsp;  &nbsp;Black Peppers
-
-  
-
-Total Cost &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;$70
-
-Order Number &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;1612008241664
-
-  
-  
 
 ## Setup/Installation Requirements
 
@@ -157,15 +67,12 @@ Order Number &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nb
 
 3. Page is also hosted on [Github](https://rekjal.github.io/pizza-Parlor-E2-WW4)
 
-  
 
 ## Known Bugs
 
-  
 
 * No known bugs at this time.
 
-  
 
 ## Technologies Used
 
@@ -179,13 +86,11 @@ Order Number &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nb
 
 * JQuery
 
-  
 
 ## Support and contact details
 
 _Email no one with any questions, comments, or concerns._
 
-  
 
 ### License
 
